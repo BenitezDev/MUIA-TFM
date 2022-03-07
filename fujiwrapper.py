@@ -28,14 +28,14 @@ class FujiWrapper:
 
 	# method to get the downloaded file name
 	def __getDownLoadedFileName(self):
-		# self.driver.execute_script("window.open()")
+		# vself.driver.execute_script("window.open()")
 		# switch to new tab
 		# self.driver.switch_to.window(driver.window_handles[-1])
 		# navigate to chrome downloads
 		self.driver.get('chrome://downloads')
 		# return the file name
 		name = self.driver.execute_script("return document.querySelector('downloads-manager').shadowRoot.querySelector('#downloadsList downloads-item').shadowRoot.querySelector('div#content  #file-link').text")
-		print("The file downloaded is: ", name)
+		#print("The file downloaded is: ", name)
 		return name
 
 
@@ -68,7 +68,7 @@ class FujiWrapper:
 			# get the file name
 			file_name = self.__getDownLoadedFileName()
 			full_path = tempfile.gettempdir() + "/" + file_name
-			print("The full path is", full_path)
+			#print("The full path is", full_path)
 
 			data = self.__parseJSON(full_path)
 
@@ -79,7 +79,7 @@ class FujiWrapper:
 
 		finally:
 			self.driver.quit()
-			print("Done")
+			#print("Done")
 
 
 
